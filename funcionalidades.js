@@ -15,7 +15,7 @@ let funcionalidades = {
     // cuando se llama a este metodo se imprimen todos los datos del auto con la patente inresada. Sino esta, devuelve "sin coincidencias"
     console.log(`========================\nBuscando el auto por su patente: ${patenteBuscada}\n========================`);
     autoBuscado = this.autos.filter(auto => auto.patente === patenteBuscada)[0];
-    return autoBuscado != undefined ? autoBuscado : `No se ha encontrado un vehiculo que coincida con la patente ${patenteBuscada}`;
+    return autoBuscado != undefined ? autoBuscado : null;
 
   },
 
@@ -40,13 +40,14 @@ let funcionalidades = {
             }
         }
       }else{
-        return auto != undefined ? auto : null;
+        return auto != undefined ? auto : "No ha ingresado una patente valida";
       }
+      
     })
-    operacionesArchivo.grabarUnJson(JSON.stringify(autos));
     if (autoVendido == null) {
         console.log('No ha ingresado una patente valida')
     }
+    operacionesArchivo.grabarUnJson(JSON.stringify(autos));
   },
 
   autosParaLaVenta: function() {
