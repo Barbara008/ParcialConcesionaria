@@ -40,7 +40,7 @@ let funcionalidades = {
             }
         }
       }else{
-        return auto != undefined ? auto : "No ha ingresado una patente valida";
+        return auto != undefined ? auto : null;
       }
       
     })
